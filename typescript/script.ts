@@ -42,13 +42,33 @@ class Mother extends Son
     {
         super()
     }
-    addInterest()
+
+    //Interesse
+    addInterest(money: number): number
     {
-        this.balanceinit += (this.balanceinit * 0,1)
+        return money * 0.1
     }
+
+    //Deposito
+    oneDepositeNumber(deposit:number) :number
+    {
+        //Calcolo bilancio
+        this.balanceinit += (deposit + this.addInterest(deposit))
+        return this.balanceinit
+    }
+
 }
 
 
 const son = new Son()
+son.oneDepositeNumber(500)
+son.oneDepositeNumber(200)
+son.oneWithDraw(100)
+son.oneWithDraw(800)
+
 const mother = new Mother() 
+mother.oneDepositeNumber(100)
+mother.oneWithDraw(20)
+
 console.log(son)
+console.log(mother)
